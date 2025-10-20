@@ -4,3 +4,8 @@
 - Creación inicial del repositorio
 - Estructura de ramas
 - Configuración de colaboradores
+
+## [v0.2] - 2025-10-25
+- Integración de ramas feature
+- Resolución de conflictos
+- Documentación final
