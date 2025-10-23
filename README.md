@@ -257,15 +257,78 @@ git commit -m "nombre para commit"
 ## 2.17. Versiones actuales
 ![versiones](imgMarkdown/versionesSubidas.png)
 
-# 3. Capturas de Pantallas
-## 3.1. Pagina Inicio
+# 3. Trabajo colaborativo en GitHub
+## 3.1. Conectar el repositorio con el GitHub
+![conectar](imgMarkdown/conectarGitHub.png)
+
+## 3.2. Creacion de archivos CHANGELOG.md y CONTRIBUTING.md
+![changelogYcontributing](imgMarkdown/changelogYcontributing.png)
+
+## 3.3. Configuracion de Branch Rules y Tag Rules
+* Protege main (para que solo tú puedas fusionar).
+* Exige aprobación de al menos 1 revisor antes de hacer merge.
+![Branch Rules y Tag Rules](imgMarkdown/BranchRulesYTagRules.png)
+
+## 3.3. Regla de protección de sucursales
+![Reglas](imgMarkdown/Reglas1.png)
+![Reglas](imgMarkdown/Reglas2.png)
+
+## 3.4. Agregando los Tag 
+![Tag](imgMarkdown/Tag.png)
+
+## 3.5. Prueba de reglas para el correcto funcionamiento.
+![PruebaReglas](imgMarkdown/PruebaReglas.png)
+
+## 3.6. Creacion de Issues 
+![Issues](imgMarkdown/Issues.png)
+
+## 3.7. Gestion de Issues y Milestones
+![IssuesYMilestones](imgMarkdown/IssuesYMilestones.png)
+
+## 3.8. Asignación de trabajo y prioridad
+![prioridad](imgMarkdown/prioridad.png)
+
+## 3.9. Creación de Milestones
+![Milestones](imgMarkdown/Milestones.png)
+
+## 3.10. Agregando Issues a Milestones
+![IssuesAMilestones](imgMarkdown/IssuesAMilestones.png)
+
+## 3.11. Revisar archivos modificados (Líder de grupo)
+![Revisar Archivos](imgMarkdown/RevisarArchivos.png)
+
+## 3.12. Creación del fork
+![fork](imgMarkdown/fork.png)
+
+## 3.13. Vista del fork creado
+![forC](imgMarkdown/forkC.png)
+
+## 3.14. Clonamos
+![git clone](imgMarkdown/gitcloneG1.png)
+![git clone](imgMarkdown/gitcloneG2.png)
+
+## 3.15. Agregamos nuestro aporte
+![Aporte](imgMarkdown/Aporte.png)
+![Agregamos](imgMarkdown/Agregamos.png)
+
+## 3.16. Se realiza el commit y el push
+![commitfork](imgMarkdown/commitfork.png)
+![pushfork](imgMarkdown/pushfork.png)
+
+## 3.17. Se realiza un PR
+![solicitaPR1](imgMarkdown/solicitaPR1.png)
+![solicitaPR2](imgMarkdown/solicitaPR2.png)
+![solicitaPR3](imgMarkdown/solicitaPR3.png)
+
+# 4. Capturas de Pantallas
+## 4.1. Pagina Inicio
 ![Inicio](imgMarkdown/paginaInicio.png)
 
-## 3.2. Pagina Producto
+## 4.2. Pagina Producto
 ![Productos](imgMarkdown/paginaProductos.png)
 
-## 3.3. Pagina Nosotros
+## 4.3. Pagina Nosotros
 ![Nosotros](imgMarkdown/paginaNosotros.png)
 
-## 3.4. Pagina Contacto
+## 4.4. Pagina Contacto
 ![Contacto](imgMarkdown/paginaContacto.png)
