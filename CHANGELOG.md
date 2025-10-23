@@ -9,13 +9,11 @@ El formato sigue la convención de [Keep a Changelog](https://keepachangelog.com
 ### 🚀 Added
 - Integración de **base de datos con Spring Boot** para la persistencia de datos.
 - Conexión y configuración de **MySQL** en el proyecto.
-- Creación de **entidades, repositorios y controladores** para la capa de datos.
 - Se agregó documentación interna en los controladores para mejor mantenimiento.
 
 ### 🧩 Changed
 - Actualización del archivo **README.md** con instrucciones detalladas de instalación y ejecución.
 - Mejoras en la estructura de ramas `feature` para una integración más limpia.
-- Ajustes menores en la organización del proyecto backend y frontend.
 
 ### 🐛 Fixed
 - Resolución de conflictos durante el proceso de *merge* entre ramas `feature`.
