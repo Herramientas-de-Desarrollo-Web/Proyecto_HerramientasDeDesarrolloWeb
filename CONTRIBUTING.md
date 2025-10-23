@@ -17,7 +17,7 @@ Antes de empezar, asegúrate de leer cuidadosamente las siguientes reglas y proc
 2. **Clona** tu fork en tu computadora:
    ```bash
    git clone https://github.com/tu-usuario/nombre-del-proyecto.git
-```
+   ```
 
 3. **Crea una rama nueva** para tus cambios:
 
