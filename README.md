@@ -358,27 +358,6 @@ git commit -m "nombre para commit"
 ![pushfork](imgMarkdown/pushfork.png)
 
 ## 3.26. Se realiza un PR
-
-## 3.12. Creación del fork
-![fork](imgMarkdown/fork.png)
-
-## 3.13. Vista del fork creado
-![forC](imgMarkdown/forkC.png)
-
-## 3.14. Clonamos
-![git clone](imgMarkdown/gitcloneG1.png)
-![git clone](imgMarkdown/gitcloneG2.png)
-
-## 3.15. Agregamos nuestro aporte
-![Aporte](imgMarkdown/Aporte.png)
-![Agregamos](imgMarkdown/Agregamos.png)
-
-## 3.16. Se realiza el commit y el push
-![commitfork](imgMarkdown/commitfork.png)
-![pushfork](imgMarkdown/pushfork.png)
-
-## 3.17. Se realiza un PR
-
 ![solicitaPR1](imgMarkdown/solicitaPR1.png)
 ![solicitaPR2](imgMarkdown/solicitaPR2.png)
 ![solicitaPR3](imgMarkdown/solicitaPR3.png)
