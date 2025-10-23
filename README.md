@@ -273,6 +273,22 @@ git commit -m "nombre para commit"
 ![Reglas](imgMarkdown/Reglas1.png)
 ![Reglas](imgMarkdown/Reglas2.png)
 
+## 📋 Reglas configuradas en GitHub (Branch & Tag Rules)
+
+| 🔧 Regla | 🧠 Propósito / Por qué se usa | ⏱️ Cuándo se aplica | 🚫 Restricciones o a quién afecta |
+|---------|-------------------------------|----------------------|----------------------------------|
+| Protección de la rama `main` | Evita que alguien suba cambios directamente al código estable sin revisión previa. | Siempre que se quiera hacer un push o merge hacia `main`. | Solo el líder del proyecto puede hacer merges después de revisión. Colaboradores no pueden hacer push directo. |
+| Protección de la rama `develop` | Mantiene una versión estable de desarrollo antes de pasar a `main`. | Cada vez que se integran nuevas features o correcciones. | Todos los colaboradores deben usar Pull Requests. El líder revisa y aprueba. |
+| Requerir Pull Request para hacer merge | Garantiza que los cambios sean revisados antes de entrar a una rama protegida. | Cuando un colaborador termina una tarea o funcionalidad. | Todos los colaboradores deben crear PRs; no se permite merge automático sin aprobación. |
+| Mínimo 1 revisor obligatorio | Fomenta revisión cruzada y detección temprana de errores. | Antes de aceptar un Pull Request. | Todos los integrantes, incluido el líder, necesitan al menos 1 aprobación. |
+| No permitir “force push” | Evita perder historial o sobrescribir commits importantes. | Cuando se intenta hacer `git push --force`. | Nadie puede hacerlo, ni siquiera el líder. Protege la integridad del historial. |
+| Requerir ramas actualizadas antes de merge | Asegura que no existan conflictos antes del merge. | Cada vez que un PR está pendiente de revisión. | GitHub bloquea el merge hasta actualizar la rama. Aplica a todos los colaboradores. |
+| Requerir status checks (opcional) | Si se usan pruebas automáticas, asegura que pasen antes del merge. | En proyectos con workflows de CI. | Todos los colaboradores deben aprobar los checks antes del merge. |
+| Regla de etiquetas (Tag Rules) | Controla el uso de tags de versiones para mantener un historial semántico. | Cada vez que se crea una nueva versión o entrega parcial. | Solo el líder puede crear o eliminar tags oficiales. |
+| Bloquear eliminación de ramas protegidas | Impide que alguien borre ramas importantes (`main`, `develop`). | En cualquier momento. | Todos los usuarios, excepto el administrador del repo. |
+| Nombrado de ramas | Ordena el trabajo en equipo y evita confusión. | Al crear una nueva rama. | Todos los colaboradores deben seguir el formato: `feature/`, `bugfix/`, `hotfix/`. |
+
+
 ## 3.4. Agregando los Tag 
 ![Tag](imgMarkdown/Tag.png)
 
@@ -297,25 +313,52 @@ git commit -m "nombre para commit"
 ## 3.11. Revisar archivos modificados (Líder de grupo)
 ![Revisar Archivos](imgMarkdown/RevisarArchivos.png)
 
-## 3.12. Creación del fork
+## 3.12. Creación de una organización
+![Creación de una organización](imgMarkdown/CreaciónORG.jpeg)
+
+## 3.13. Definiendo Nombre
+![Revisar Archivos](imgMarkdown/DefiniendoNombre.jpeg)
+
+## 3.14. Vista de la Organización creada
+![Vista de la Organización creada](imgMarkdown/VistaORG.jpeg)
+
+## 3.15. Selección de la forma del proyecto (Kanban)
+![Selección de la forma del proyecto (Kanban)](imgMarkdown/Forma.jpeg)
+
+## 3.16. Seleccionamos tablero Kanban
+![Seleccionamos tablero Kanban](imgMarkdown/Kanban.jpeg)
+
+## 3.17. Tranferir repositorio a la organización
+![Tranferir repositorio a la organización](imgMarkdown/SeetingsRepo.jpeg)
+
+## 3.18. Danger Zone
+![Danger Zone](imgMarkdown/DangerZone.jpeg)
+
+## 3.19. Confirmación de la transferencia
+![Confirmación de la transferencia](imgMarkdown/ConfirmRepo.jpeg)
+
+## 3.20. Vista Final de la Organización
+![Vista Final](imgMarkdown/VistFinal.jpeg)
+
+## 3.21. Creación del fork
 ![fork](imgMarkdown/fork.png)
 
-## 3.13. Vista del fork creado
+## 3.22. Vista del fork creado
 ![forC](imgMarkdown/forkC.png)
 
-## 3.14. Clonamos
+## 3.23. Clonamos
 ![git clone](imgMarkdown/gitcloneG1.png)
 ![git clone](imgMarkdown/gitcloneG2.png)
 
-## 3.15. Agregamos nuestro aporte
+## 3.24. Agregamos nuestro aporte
 ![Aporte](imgMarkdown/Aporte.png)
 ![Agregamos](imgMarkdown/Agregamos.png)
 
-## 3.16. Se realiza el commit y el push
+## 3.25. Se realiza el commit y el push
 ![commitfork](imgMarkdown/commitfork.png)
 ![pushfork](imgMarkdown/pushfork.png)
 
-## 3.17. Se realiza un PR
+## 3.26. Se realiza un PR
 ![solicitaPR1](imgMarkdown/solicitaPR1.png)
 ![solicitaPR2](imgMarkdown/solicitaPR2.png)
 ![solicitaPR3](imgMarkdown/solicitaPR3.png)
