@@ -19,8 +19,6 @@ Antes de empezar, asegúrate de leer cuidadosamente las siguientes reglas y proc
    git clone https://github.com/tu-usuario/nombre-del-proyecto.git
    ```
 
-
-
 3. **Crea una rama nueva** para tus cambios:
 
    ```bash
@@ -122,6 +120,4 @@ Queremos mantener un ambiente de trabajo **respetuoso y colaborativo**.
 
 Tu participación ayuda a que este proyecto crezca y mejore.
 ¡Aporta tus ideas, corrige errores y sigamos aprendiendo juntos! 🚀
-
----
 

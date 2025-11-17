@@ -358,6 +358,7 @@ git commit -m "nombre para commit"
 ![pushfork](imgMarkdown/pushfork.png)
 
 ## 3.26. Se realiza un PR
+
 ![solicitaPR1](imgMarkdown/solicitaPR1.png)
 ![solicitaPR2](imgMarkdown/solicitaPR2.png)
 ![solicitaPR3](imgMarkdown/solicitaPR3.png)
