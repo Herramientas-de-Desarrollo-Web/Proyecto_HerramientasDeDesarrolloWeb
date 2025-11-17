@@ -51,3 +51,21 @@
 - name: ci
   color: "5319e8"
   description: "Tareas o problemas del CI/CD"
+
+  # Nuevas etiquetas de prueba
+- name: incidente:base-de-datos
+  color: "d73a4a"
+  description: "Incidente relacionado con la base de datos"
+
+- name: incidente:servidor
+  color: "fbca04"
+  description: "Problemas en el servidor o infraestructura"
+
+- name: incidente:frontend
+  color: "0e8a16"
+  description: "Problemas visuales o errores en el front-end"
+
+- name: incidente:backend
+  color: "5319e7"
+  description: "Problemas con lógica backend o API"
+
