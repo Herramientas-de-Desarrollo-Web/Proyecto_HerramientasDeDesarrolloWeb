@@ -12,6 +12,7 @@ permissions:
   pull-requests: write
   administration: write
 
+
 jobs:
   sync-labels:
     runs-on: ubuntu-latest
