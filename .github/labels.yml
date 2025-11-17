@@ -36,15 +36,15 @@
   color: "7057ff"
   description: "Ideal para nuevos contribuyentes"
 
-- name: priority: high
+- name: "priority: high"
   color: "b60205"
   description: "Alta criticidad"
 
-- name: priority: medium
+- name: "priority: medium"
   color: "f9d0c4"
   description: "Criticidad media"
 
-- name: status: needs-triage
+- name: "status: needs-triage"
   color: "fbca04"
   description: "Por clasificar"
 
