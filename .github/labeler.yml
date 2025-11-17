@@ -1,0 +1,19 @@
+bug:
+  - 'tests/**'
+
+feature:
+  - 'features/**'
+
+documentation:
+  - 'docs/**'
+
+ci:
+  - '.github/workflows/**'
+
+frontend:
+  - 'public/JavaScript/**'
+  - 'public/CSS/**'
+  - 'public/HTML/**'
+
+backend:
+  - 'src/**'
