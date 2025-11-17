@@ -10,6 +10,8 @@ permissions:
   contents: read
   issues: write
   pull-requests: write
+  administration: write
+
 
 jobs:
   sync-labels:
