@@ -1,0 +1,53 @@
+# .github/labels.yml
+
+- name: bug
+  color: "d73a4a"
+  description: "Error o comportamiento inesperado"
+  aliases:
+    - defect
+    - error
+    - bugs
+
+- name: critical
+  color: "b60205"
+  description: "Impacto severo o interrupción del servicio"
+
+- name: feature
+  color: "a2eeef"
+  description: "Nueva funcionalidad o mejora"
+
+- name: task
+  color: "cfd3d7"
+  description: "Trabajo técnico o mantenimiento"
+
+- name: documentation
+  color: "0075ca"
+  description: "Cambios en documentación o README"
+
+- name: backend
+  color: "5319e7"
+  description: "Afecta servicios, controladores o modelos"
+
+- name: frontend
+  color: "1d76db"
+  description: "UI, CSS o interacción cliente"
+
+- name: good first issue
+  color: "7057ff"
+  description: "Ideal para nuevos contribuyentes"
+
+- name: priority: high
+  color: "b60205"
+  description: "Alta criticidad"
+
+- name: priority: medium
+  color: "f9d0c4"
+  description: "Criticidad media"
+
+- name: status: needs-triage
+  color: "fbca04"
+  description: "Por clasificar"
+
+- name: ci
+  color: "5319e8"
+  description: "Tareas o problemas del CI/CD"
