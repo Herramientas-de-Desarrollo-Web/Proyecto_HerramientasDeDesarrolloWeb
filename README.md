@@ -73,6 +73,24 @@
 * Monitoreo y notificaciones
 
 ### Casos: Una vez que CI confirma que el build es correcto, el sistema se despliega automáticamente al servidor de pruebas para que el equipo lo verifique.
+
+## 1.7. Creación de la carpeta para la gestión de incidencias:
+![gestiónIncidencias](imgMarkdown/gestiónIncidencias.png)
+## 1.8. Creación de labels.yml automatizado: 
+![automatizado](imgMarkdown/automatizado.png)
+## 1.9. Corrección de labels en GitHub si no funciona:
+![labelsGitHub](imgMarkdown/labelsGitHub.png)
+![labelsGitHub2](imgMarkdown/labelsGitHub2.png)
+![labelsGitHub3](imgMarkdown/labelsGitHub3.png)
+![labelsGitHub4](imgMarkdown/labelsGitHub4.png)
+# Ejemplo de funcionamiento:
+## 1.10. Nuevas etiquetas de prueba:
+![etiquetaPrueba](imgMarkdown/etiquetaPrueba.png)
+## 1.11. Creación de Issues automatizados con la organización: 
+![issuesAutomatizados ](imgMarkdown/issuesAutomatizados.png)
+## 1.12. Realizando el despliegue:
+![despliegue](imgMarkdown/despliegue.png)
+![despliegu2](imgMarkdown/despliegue2.png)
 <!--
 ## 1.4. Tecnologias utilizadas 💻
 * JavaScript/MySQL/css.
