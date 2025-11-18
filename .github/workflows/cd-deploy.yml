@@ -1,0 +1,35 @@
+name: CD - Deploy to server
+
+on:
+  workflow_run:
+    workflows: ["CD - Build and Push Docker image"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait a bit
+        run: sleep 5
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          timeout: 60
+          script: |
+            set -e
+            cd ${{ secrets.REMOTE_APP_DIR }}
+            # pull latest image
+            docker-compose pull
+            # recreate containers
+            docker-compose up -d --remove-orphans
+            # optional: prune unused images
+            docker image prune -f
+            # check status
+            docker-compose ps
