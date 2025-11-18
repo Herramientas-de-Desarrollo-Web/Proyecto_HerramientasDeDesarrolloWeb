@@ -20,9 +20,13 @@ app.use(express.static(path.join(__dirname, "../public")));
 // Rutas API
 app.use("/api/users", userRoutes);
 
-// Si el usuario accede a cualquier ruta que no sea API, envia el index.html
-// (esto sirve si tu frontend tiene varias páginas)
-app.get("*", (req, res) => {
+// Ruta de verificación (debe estar ANTES del fallback)
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok" });
+});
+
+// Fallback para cualquier otra ruta
+app.use((req, res) => {
   res.sendFile(path.join(__dirname, "../public/HTML/index.html"));
 });
 
