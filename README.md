@@ -1,31 +1,81 @@
 # 1. Desarrollo de un Sistema de Gestión de Ventas para TechZone 🛒
 
 ## 1.1. Problematica ⚠️
-### La empresa TechZone enfrenta dificultades en la gestión de sus ventas debido a procesos manuales y poco organizados. Actualmente, el registro de clientes, productos y transacciones se realiza en hojas de cálculo y documentos físicos, lo que genera errores frecuentes, duplicidad de información y pérdida de tiempo en la atención al cliente.
-### Además, la falta de un sistema centralizado impide un adecuado control de inventario y limita la capacidad de generar reportes en tiempo real para la toma de decisiones estratégicas.
+### Salón Encanto, dedicado al alquiler de espacios para eventos, actualmente gestiona las reservas de forma manual, lo que ha generado diversos problemas como errores de sobre-reserva, dificultad para visualizar la disponibilidad en tiempo real y falta de seguimiento a las solicitudes de los clientes. Esta situación reduce la eficiencia operativa, limita la capacidad de respuesta ante imprevistos y afecta negativamente la experiencia del usuario.
+### La ausencia de una solución tecnológica genera retrasos en la atención, pérdida de oportunidades comerciales y sobrecarga administrativa. En un entorno donde la digitalización es esencial para competir y brindar un servicio profesional, se hace evidente la necesidad de contar con una plataforma web automatizada que permita mejorar la gestión y brindar mayor comodidad tanto a los usuarios como al personal del negocio.
 
 ## 1.2. Objetivos 🎯
 ### 1.2.1. Objetivo General
-#### Desarrollar un Sistema de Gestión de Ventas para TechZone que permita automatizar y optimizar el registro de clientes, productos e inventario, mejorando la eficiencia operativa y facilitando la toma de decisiones.
+#### Desarrollar e implementar una plataforma web intuitiva y automatizada que permita a los usuarios reservar espacios y eventos de Salón Encanto de manera sencilla, rápida y sin errores, optimizando a su vez la gestión interna.
 
 ### 1.2.2 Objetivos Especificos. 
-* Proporcionar una interfaz amigable que facilite el uso del sistema de TechZone.
-* Implementar un flujo de trabajo con Git para llevar control de versiones del sistema durante todo el desarrollo.
-* Centralizar el código en GitHub para facilitar la colaboración, respaldo y visibilidad del proyecto.
-* Configurar un archivo .gitignore para excluir archivos innecesarios del repositorio.
+* Crear un calendario interactivo con disponibilidad en tiempo real.
+* Incorporar notificaciones automáticas para mantener informados a los usuarios.
+* Facilitar un panel de administración para el personal de Salón Encanto.
+* Obtener métricas clave que permitan analizar el rendimiento del sistema.
 
 ## 1.3. Requerimientos 📜
 |Funcionales|No Funcionales|
 |-----------|--------------|
-|El sistema debe de ser responsive|Los comandos deberan estar en Git|
-|El cliente podra agregar producto al carrito|El README tendra todo el proceso de desarrollo|
-|El sistema tendra una ventana de login|Los commits deberán tener mensajes claros y descriptivos|
-|El cliente podra actualizar sus datos personales|Se deberán usar pull requests para revisión de código antes de fusionar cambios|
-|El sistema tendra un libro de reclamaciones|Los archivos sensibles deberán ser excluidos con `.gitignore`|
-|El sistema brindara un resumen de compra al finalizar la venta|Se deberán etiquetar versiones estables con tags en Git|
+|Calendario visual con horarios disponibles.|Plataforma web responsive (compatible con PC, tablet y móvil).|
+|Motor de reservas en tiempo real.|El README tendra todo el proceso de desarrollo|
+|Sistema de notificaciones (email y/o móvil).|Rendimiento eficiente (respuestas rápidas al reservar o consultar disponibilidad).|
+|Panel de gestión para administradores.|Seguridad de datos (protección de información de usuarios y reservas).|
+|Base de datos para usuarios, reservas, espacios y reportes.|Disponibilidad y confiabilidad (el sistema debe estar operativo la mayor parte del tiempo).|
+|Módulo para encuestas de satisfacción.|Escalabilidad (permitir futuras funcionalidades y expansión a más espacios o filiales).|
 
+## 1.4. Gestión de incidencias
+### Proceso de identificar, registrar, analizar y resolver problemas o fallas que ocurren en un sistema o proyecto.
+### Objetivo: Minimizar el impacto de los errores, asegurar la continuidad del servicio y mantener un registro histórico de los problemas.
+
+### Elementos clave:
+
+* Registro de incidencias (issues)
+
+* Asignación y seguimiento
+
+* Resolución y cierre
+
+* Reportes y análisis de tendencias
+
+### Casos: Un usuario reporta que no puede completar un pago; se registra la incidencia, se asigna al desarrollador, se corrige y se cierra el issue.
+
+## 1.5. Integración Continua (CI)
+
+### Práctica de desarrollo en la que los cambios en el código se fusionan frecuentemente en un repositorio central, ejecutando automáticamente compilaciones y pruebas para detectar errores lo antes posible.
+
+### Objetivo: Garantizar que el código sea funcional y estable en todo momento, evitando que los errores se propaguen a la rama principal.
+
+### Elementos clave:
+
+* Compilación automática del proyecto
+
+* Ejecución de pruebas unitarias y de integración
+
+* Validación de calidad del código
+
+* Notificaciones de fallos a los desarrolladores
+
+### Casos: Cada vez que un desarrollador sube código, GitHub Actions ejecuta tests y construye el proyecto automáticamente.
+
+## 1.6. Entrega Continua (CD)
+
+### Extensión de la integración continua que permite desplegar automáticamente el software a un entorno de pruebas o producción después de que pasa los tests de CI.
+
+### Objetivo: Reducir el tiempo y los errores asociados al despliegue manual, garantizando que nuevas funciones o correcciones estén disponibles rápidamente.
+
+### Elementos clave:
+
+* Despliegue automático a un entorno de pruebas o producción
+
+* Validación post-despliegue
+
+* Monitoreo y notificaciones
+
+### Casos: Una vez que CI confirma que el build es correcto, el sistema se despliega automáticamente al servidor de pruebas para que el equipo lo verifique.
+<!--
 ## 1.4. Tecnologias utilizadas 💻
-* java/html/javaScript/css.
+* JavaScript/MySQL/css.
 * Git/GitHub.
 * Visual Studio Code
 
