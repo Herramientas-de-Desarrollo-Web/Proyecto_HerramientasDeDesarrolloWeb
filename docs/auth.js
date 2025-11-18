@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         text: 'Ahora puedes iniciar sesión con tu cuenta.',
         confirmButtonColor: '#1abc9c'
       }).then(() => {
-      window.location.href = "../HTML/login.html";
+      window.location.href = "login.html";
       });
     });
   }
@@ -55,7 +55,7 @@ function iniciarSesion(correo, contrasena) {
       text: 'Has iniciado sesión correctamente.',
       confirmButtonColor: '#1abc9c'
     }).then(() => {
-      window.location.href = "../HTML/admin.html";
+      window.location.href = "admin.html";
     });
     return;
   }
@@ -78,7 +78,7 @@ function iniciarSesion(correo, contrasena) {
       text: `Bienvenido, ${cliente.nombre}.`,
       confirmButtonColor: '#1abc9c'
     }).then(() => {
-      window.location.href = "../HTML/index.html"; // o "reservas.html"
+      window.location.href = "index.html"; // o "reservas.html"
     });
 
   } else {
