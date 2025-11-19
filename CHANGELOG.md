@@ -6,6 +6,13 @@ El formato sigue la convención de [Keep a Changelog](https://keepachangelog.com
 ---
 
 ## [v0.2] - 2025-10-25
+<<<<<<< HEAD
+- Integración de ramas feature
+- Resolución de conflictos
+- Documentación Final del segundo avance
+
+
+=======
 ### 🚀 Added
 - Integración de **base de datos con Spring Boot** para la persistencia de datos.
 - Conexión y configuración de **MySQL** en el proyecto.
@@ -28,4 +35,3 @@ El formato sigue la convención de [Keep a Changelog](https://keepachangelog.com
 - Asignación de **colaboradores** y establecimiento de reglas básicas de contribución.
 - Configuración inicial de protección de ramas en GitHub.
 
----
