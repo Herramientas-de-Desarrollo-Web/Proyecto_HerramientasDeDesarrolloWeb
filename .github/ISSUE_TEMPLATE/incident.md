@@ -26,5 +26,5 @@ Error al seleccionar la fecha te genera auntomatico la reserva
 
 ## Evidencias
 ![Incidencias](../../imgMarkdown/Incident.jpeg)
-![Incidencias](../../imgMarkdown/Incident1.jpeg)
+![Incidencias](../../imgMarkdown/Indident1.jpeg)
 
