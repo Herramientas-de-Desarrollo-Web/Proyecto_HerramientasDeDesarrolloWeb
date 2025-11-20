@@ -1,0 +1,39 @@
+name: Create Kanban Labels
+
+on:
+  workflow_dispatch:  # Se ejecuta manualmente
+
+jobs:
+  create-labels:
+    runs-on: ubuntu-latest
+
+    permissions:
+      issues: write
+
+    steps:
+      - name: Create labels for Kanban automation
+        uses: peter-evans/create-label@v5
+        with:
+          labels: |
+            [
+              {
+                "name": "todo",
+                "color": "0E8A16",
+                "description": "Pendiente - To do"
+              },
+              {
+                "name": "in-progress",
+                "color": "1D76DB",
+                "description": "En desarrollo - In Progress"
+              },
+              {
+                "name": "review",
+                "color": "FBCA04",
+                "description": "Pendiente de revisión"
+              },
+              {
+                "name": "done",
+                "color": "5319E7",
+                "description": "Completado"
+              }
+            ]
