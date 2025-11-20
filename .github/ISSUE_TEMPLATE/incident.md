@@ -9,16 +9,21 @@ assignees: ""
 ---
 
 ## Descripción del incidente
-Explica qué ocurrió y cómo afecta al sistema.
+Error al seleccionar la fecha te genera auntomatico la reserva 
 
 ## Hora aproximada del incidente
-Ejemplo: 2025-11-19 14:35
+2025-11-18 14:35
 
 ## Servicios afectados
-Describe qué partes del sistema dejaron de funcionar.
+- Módulo de selección de fechas
+
+- Motor de reservas
+
+- Notificaciones automáticas
 
 ## Gravedad
-- Alta / Media / Baja
+- Alta 
 
 ## Evidencias
-Logs, capturas, errores, etc.
+![gestiónIncidencias](imgMarkdown/Incident.jpeg)
+![gestiónIncidencias](imgMarkdown/Incident.jpeg)
