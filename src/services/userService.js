@@ -1,0 +1,7 @@
+// src/services/userService.js
+import { db } from "../config/db.js";
+
+export const getAllUsers = async () => {
+  const [rows] = await db.query("SELECT * FROM users");
+  return rows;
+};

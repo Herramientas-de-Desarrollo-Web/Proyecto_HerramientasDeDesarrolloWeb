@@ -1,31 +1,133 @@
-# 1. Desarrollo de un Sistema de Gestión de Ventas para TechZone 🛒
+# 1. Sistema de Reservas de salones para Salon Encanto
 
 ## 1.1. Problematica ⚠️
-### La empresa TechZone enfrenta dificultades en la gestión de sus ventas debido a procesos manuales y poco organizados. Actualmente, el registro de clientes, productos y transacciones se realiza en hojas de cálculo y documentos físicos, lo que genera errores frecuentes, duplicidad de información y pérdida de tiempo en la atención al cliente.
-### Además, la falta de un sistema centralizado impide un adecuado control de inventario y limita la capacidad de generar reportes en tiempo real para la toma de decisiones estratégicas.
+### Salón Encanto, dedicado al alquiler de espacios para eventos, actualmente gestiona las reservas de forma manual, lo que ha generado diversos problemas como errores de sobre-reserva, dificultad para visualizar la disponibilidad en tiempo real y falta de seguimiento a las solicitudes de los clientes. Esta situación reduce la eficiencia operativa, limita la capacidad de respuesta ante imprevistos y afecta negativamente la experiencia del usuario.
+### La ausencia de una solución tecnológica genera retrasos en la atención, pérdida de oportunidades comerciales y sobrecarga administrativa. En un entorno donde la digitalización es esencial para competir y brindar un servicio profesional, se hace evidente la necesidad de contar con una plataforma web automatizada que permita mejorar la gestión y brindar mayor comodidad tanto a los usuarios como al personal del negocio.
 
 ## 1.2. Objetivos 🎯
 ### 1.2.1. Objetivo General
-#### Desarrollar un Sistema de Gestión de Ventas para TechZone que permita automatizar y optimizar el registro de clientes, productos e inventario, mejorando la eficiencia operativa y facilitando la toma de decisiones.
+#### Desarrollar e implementar una plataforma web intuitiva y automatizada que permita a los usuarios reservar espacios y eventos de Salón Encanto de manera sencilla, rápida y sin errores, optimizando a su vez la gestión interna.
 
 ### 1.2.2 Objetivos Especificos. 
-* Proporcionar una interfaz amigable que facilite el uso del sistema de TechZone.
-* Implementar un flujo de trabajo con Git para llevar control de versiones del sistema durante todo el desarrollo.
-* Centralizar el código en GitHub para facilitar la colaboración, respaldo y visibilidad del proyecto.
-* Configurar un archivo .gitignore para excluir archivos innecesarios del repositorio.
+* Crear un calendario interactivo con disponibilidad en tiempo real.
+* Incorporar notificaciones automáticas para mantener informados a los usuarios.
+* Facilitar un panel de administración para el personal de Salón Encanto.
+* Obtener métricas clave que permitan analizar el rendimiento del sistema.
 
 ## 1.3. Requerimientos 📜
 |Funcionales|No Funcionales|
 |-----------|--------------|
-|El sistema debe de ser responsive|Los comandos deberan estar en Git|
-|El cliente podra agregar producto al carrito|El README tendra todo el proceso de desarrollo|
-|El sistema tendra una ventana de login|Los commits deberán tener mensajes claros y descriptivos|
-|El cliente podra actualizar sus datos personales|Se deberán usar pull requests para revisión de código antes de fusionar cambios|
-|El sistema tendra un libro de reclamaciones|Los archivos sensibles deberán ser excluidos con `.gitignore`|
-|El sistema brindara un resumen de compra al finalizar la venta|Se deberán etiquetar versiones estables con tags en Git|
+|Calendario visual con horarios disponibles.|Plataforma web responsive (compatible con PC, tablet y móvil).|
+|Motor de reservas en tiempo real.|El README tendra todo el proceso de desarrollo|
+|Sistema de notificaciones (email y/o móvil).|Rendimiento eficiente (respuestas rápidas al reservar o consultar disponibilidad).|
+|Panel de gestión para administradores.|Seguridad de datos (protección de información de usuarios y reservas).|
+|Base de datos para usuarios, reservas, espacios y reportes.|Disponibilidad y confiabilidad (el sistema debe estar operativo la mayor parte del tiempo).|
+|Módulo para encuestas de satisfacción.|Escalabilidad (permitir futuras funcionalidades y expansión a más espacios o filiales).|
 
+## 1.4. Gestión de incidencias
+### Proceso de identificar, registrar, analizar y resolver problemas o fallas que ocurren en un sistema o proyecto.
+### Objetivo: Minimizar el impacto de los errores, asegurar la continuidad del servicio y mantener un registro histórico de los problemas.
+
+### Elementos clave:
+
+* Registro de incidencias (issues)
+
+* Asignación y seguimiento
+
+* Resolución y cierre
+
+* Reportes y análisis de tendencias
+
+### Casos: Un usuario reporta que no puede completar un pago; se registra la incidencia, se asigna al desarrollador, se corrige y se cierra el issue.
+
+## 1.5. Integración Continua (CI)
+
+### Práctica de desarrollo en la que los cambios en el código se fusionan frecuentemente en un repositorio central, ejecutando automáticamente compilaciones y pruebas para detectar errores lo antes posible.
+
+### Objetivo: Garantizar que el código sea funcional y estable en todo momento, evitando que los errores se propaguen a la rama principal.
+
+### Elementos clave:
+
+* Compilación automática del proyecto
+
+* Ejecución de pruebas unitarias y de integración
+
+* Validación de calidad del código
+
+* Notificaciones de fallos a los desarrolladores
+
+### Casos: Cada vez que un desarrollador sube código, GitHub Actions ejecuta tests y construye el proyecto automáticamente.
+
+## 1.6. Entrega Continua (CD)
+
+### Extensión de la integración continua que permite desplegar automáticamente el software a un entorno de pruebas o producción después de que pasa los tests de CI.
+
+### Objetivo: Reducir el tiempo y los errores asociados al despliegue manual, garantizando que nuevas funciones o correcciones estén disponibles rápidamente.
+
+### Elementos clave:
+
+* Despliegue automático a un entorno de pruebas o producción
+
+* Validación post-despliegue
+
+* Monitoreo y notificaciones
+
+### Casos: Una vez que CI confirma que el build es correcto, el sistema se despliega automáticamente al servidor de pruebas para que el equipo lo verifique.
+
+## 1.7. Creación de la carpeta para la gestión de incidencias:
+![gestiónIncidencias](imgMarkdown/gestiónIncidencias.png)
+## 1.8. Creación de labels.yml automatizado: 
+![automatizado](imgMarkdown/automatizado.png)
+## 1.9. Corrección de labels en GitHub si no funciona:
+![labelsGitHub](imgMarkdown/labelsGitHub.png)
+![labelsGitHub2](imgMarkdown/labelsGitHub2.png)
+![labelsGitHub3](imgMarkdown/labelsGitHub3.png)
+![labelsGitHub4](imgMarkdown/labelsGitHub4.png)
+# Ejemplo de funcionamiento:
+## 1.10. Nuevas etiquetas de prueba:
+![etiquetaPrueba](imgMarkdown/etiquetaPrueba.png)
+## 1.11. Creación de Issues automatizados con la organización: 
+![issuesAutomatizados ](imgMarkdown/issuesAutomatizados.png)
+## 1.12. Agregando cambios en ISSUES_TEMPLATE:
+![issues ](imgMarkdown/issues-template.jpeg)
+## 1.13. Con el contenido de ISSUE_TEMPLATE CORRECTO nos saldrán las plantillas al crear un ISSUE:
+![template ](imgMarkdown/template.jpeg)
+## 1.14. Seleccionamos bug_report.md:
+![bug-report ](imgMarkdown/bug-report.jpeg)
+## 1.15. Realizando test de funcionamiento de la automatización:
+![test1 ](imgMarkdown/test1.jpeg)
+![test2 ](imgMarkdown/test2.jpeg)
+## 1.16. Por defecto se va a la columna “To do”:
+![to-do ](imgMarkdown/to-do.jpeg)
+## 1.17. Prueba: Pull request merged
+![merged ](imgMarkdown/merged.jpeg)
+## 1.18. Por defecto sale en la columna “To do”:
+![to-do1 ](imgMarkdown/to-do1.jpeg)
+## 1.19. En PR seleccionamos el número del issue para que se cierre automáticamente:
+![PR ](imgMarkdown/PR.jpeg)
+## 1.20. Revisamos si se realizó correctamente:
+![Revision ](imgMarkdown/Revision.jpeg)
+## 1.21. Realizando el despliegue:
+![despliegue](imgMarkdown/despliegue.png)
+![despliegu2](imgMarkdown/despliegue2.png)
+## 1.22. Inicio de sesión con GitHub en Render:
+![render](imgMarkdown/renderizar.jpeg)
+![render2](imgMarkdown/renderizar2.jpeg)
+## 1.23. Dando permisos a render desde la organización:
+![permiso](imgMarkdown/permiso1.jpeg)
+![permiso2](imgMarkdown/permiso2.jpeg)
+## 1.24. Configurando el despliegue:
+![desplegue1](imgMarkdown/desplegue1.jpeg)
+![desplegue2](imgMarkdown/desplegue2.jpeg)
+## 1.24. Despliegue exitoso:
+![exitoso1](imgMarkdown/exitoso1.jpeg)
+## 1.25. Para desactivar el despliegue automático en render:
+![exitoso2](imgMarkdown/exitoso2.jpeg)
+## 1.26. Opción “off”:
+![exitoso3](imgMarkdown/exitoso3.jpeg)
+<!--
 ## 1.4. Tecnologias utilizadas 💻
-* java/html/javaScript/css.
+* JavaScript/MySQL/css.
 * Git/GitHub.
 * Visual Studio Code
 
@@ -257,15 +359,78 @@ git commit -m "nombre para commit"
 ## 2.17. Versiones actuales
 ![versiones](imgMarkdown/versionesSubidas.png)
 
-# 3. Capturas de Pantallas
-## 3.1. Pagina Inicio
+# 3. Trabajo colaborativo en GitHub
+## 3.1. Conectar el repositorio con el GitHub
+![conectar](imgMarkdown/conectarGitHub.png)
+
+## 3.2. Creacion de archivos CHANGELOG.md y CONTRIBUTING.md
+![changelogYcontributing](imgMarkdown/changelogYcontributing.png)
+
+## 3.3. Configuracion de Branch Rules y Tag Rules
+* Protege main (para que solo tú puedas fusionar).
+* Exige aprobación de al menos 1 revisor antes de hacer merge.
+![Branch Rules y Tag Rules](imgMarkdown/BranchRulesYTagRules.png)
+
+## 3.3. Regla de protección de sucursales
+![Reglas](imgMarkdown/Reglas1.png)
+![Reglas](imgMarkdown/Reglas2.png)
+
+## 3.4. Agregando los Tag 
+![Tag](imgMarkdown/Tag.png)
+
+## 3.5. Prueba de reglas para el correcto funcionamiento.
+![PruebaReglas](imgMarkdown/PruebaReglas.png)
+
+## 3.6. Creacion de Issues 
+![Issues](imgMarkdown/Issues.png)
+
+## 3.7. Gestion de Issues y Milestones
+![IssuesYMilestones](imgMarkdown/IssuesYMilestones.png)
+
+## 3.8. Asignación de trabajo y prioridad
+![prioridad](imgMarkdown/prioridad.png)
+
+## 3.9. Creación de Milestones
+![Milestones](imgMarkdown/Milestones.png)
+
+## 3.10. Agregando Issues a Milestones
+![IssuesAMilestones](imgMarkdown/IssuesAMilestones.png)
+
+## 3.11. Revisar archivos modificados (Líder de grupo)
+![Revisar Archivos](imgMarkdown/RevisarArchivos.png)
+
+## 3.12. Creación del fork
+![fork](imgMarkdown/fork.png)
+
+## 3.13. Vista del fork creado
+![forC](imgMarkdown/forkC.png)
+
+## 3.14. Clonamos
+![git clone](imgMarkdown/gitcloneG1.png)
+![git clone](imgMarkdown/gitcloneG2.png)
+
+## 3.15. Agregamos nuestro aporte
+![Aporte](imgMarkdown/Aporte.png)
+![Agregamos](imgMarkdown/Agregamos.png)
+
+## 3.16. Se realiza el commit y el push
+![commitfork](imgMarkdown/commitfork.png)
+![pushfork](imgMarkdown/pushfork.png)
+
+## 3.17. Se realiza un PR
+![solicitaPR1](imgMarkdown/solicitaPR1.png)
+![solicitaPR2](imgMarkdown/solicitaPR2.png)
+![solicitaPR3](imgMarkdown/solicitaPR3.png)
+
+# 4. Capturas de Pantallas
+## 4.1. Pagina Inicio
 ![Inicio](imgMarkdown/paginaInicio.png)
 
-## 3.2. Pagina Producto
+## 4.2. Pagina Producto
 ![Productos](imgMarkdown/paginaProductos.png)
 
-## 3.3. Pagina Nosotros
+## 4.3. Pagina Nosotros
 ![Nosotros](imgMarkdown/paginaNosotros.png)
 
-## 3.4. Pagina Contacto
+## 4.4. Pagina Contacto
 ![Contacto](imgMarkdown/paginaContacto.png)

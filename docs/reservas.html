@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reservas - MiEmpresa</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+  <header class="animate__animated animate__fadeInDown">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="Logo2.png" alt="Logo" style="height: 40px; margin-right: 10px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto" id="nav-dinamico">
+          <!-- Aquí se insertan los botones dinámicos -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <!--Filtros-->
+  <main class="container my-5">
+    <h2 class="text-center mb-4">Reservar Sala</h2>
+
+    <div class="d-flex justify-content-center mb-4 animate__animated animate__fadeInDown" id="filter-buttons">
+      <button class="btn btn-outline-primary me-2 active" data-filter="todos">Todos</button>
+      <button class="btn btn-outline-primary me-2" data-filter="pequeno">Pequeños</button>
+      <button class="btn btn-outline-primary me-2" data-filter="mediano">Medianos</button>
+      <button class="btn btn-outline-primary" data-filter="grande">Grandes</button>
+    </div>
+
+    <div class="row" id="contenedor-tarjetas"></div>
+  </main>
+
+  <!-- Modal de Reserva Mejorado -->
+<div class="modal fade" id="modal-reserva" tabindex="-1" aria-labelledby="modalReservaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered animate__animated animate__zoomIn">
+    <div class="modal-content rounded-4 shadow border-0">
+      <form id="form-reserva">
+        <div class="modal-header bg-success text-white rounded-top-4">
+          <h5 class="modal-title fw-bold" id="modalReservaLabel">
+            <i class="bi bi-calendar-check-fill me-2"></i>Confirmar Reserva
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+
+        <div class="modal-body px-4">
+          <p class="lead text-muted mb-4">Completa los datos para finalizar tu reserva</p>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="fecha-inicio" class="form-label">Fecha de inicio:</label>
+              <input type="datetime-local" class="form-control rounded-3" id="fecha-inicio" required>
+            </div>
+            <div class="col-md-6">
+              <label for="fecha-fin" class="form-label">Fecha de fin:</label>
+              <input type="datetime-local" class="form-control rounded-3" id="fecha-fin" required>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label fw-semibold">Horarios disponibles:</label>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <button id="semana-anterior" class="btn btn-outline-secondary btn-sm">
+                ← Semana anterior
+              </button>
+              <h6 id="rango-semanal" class="m-0 fw-semibold text-primary text-center">Semana actual</h6>
+              <button id="semana-siguiente" class="btn btn-outline-secondary btn-sm">
+                Semana siguiente →
+              </button>
+            </div>
+            <div id="calendario-disponibilidad" class="table-responsive p-2 bg-light rounded" style="max-height: 300px; overflow: auto;"></div>
+          </div>
+
+
+          <fieldset class="border rounded p-3 mb-4">
+            <legend class="float-none w-auto px-3 text-success fw-semibold">Servicios Adicionales</legend>
+            <div class="row row-cols-1 row-cols-md-2 g-2">
+              <div class="form-check"><input class="form-check-input" type="checkbox" value="150" id="servicio1"><label class="form-check-label" for="servicio1">Catering (+S/.150)</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" value="100" id="servicio2"><label class="form-check-label" for="servicio2">Audiovisuales (+S/.100)</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" value="200" id="servicio3"><label class="form-check-label" for="servicio3">Decoración (+S/.200)</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" value="120" id="servicio4"><label class="form-check-label" for="servicio4">Personal Apoyo (+S/.120)</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" value="50" id="servicio5"><label class="form-check-label" for="servicio5">Estacionamiento (+S/.50)</label></div>
+            </div>
+          </fieldset>
+
+          <div class="mb-3">
+            <label for="comentarios" class="form-label">Comentarios adicionales:</label>
+            <textarea class="form-control rounded-3" id="comentarios" rows="3" placeholder="Opcional"></textarea>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center mt-4">
+            <p class="fw-semibold m-0 text-secondary">Precio base: <span id="precioBase" class="text-dark">S/. 0.00</span></p>
+            <p class="fw-bold m-0 text-primary">Total: <span id="totalPrecio">S/. 0.00</span></p>
+          </div>
+        </div>
+
+        <div class="modal-footer d-flex justify-content-between px-4">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-success" id="btnConfirmarReserva">
+            <i class="bi bi-check-circle me-1"></i> Confirmar Reserva
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+  <footer class="bg-light text-center py-4">
+    <div class="container">
+      <p>&copy; 2025 MiEmpresa. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="sesion.js"></script>
+  <script src="reserva.js"></script>
+
+</body>
+</html>
+
+

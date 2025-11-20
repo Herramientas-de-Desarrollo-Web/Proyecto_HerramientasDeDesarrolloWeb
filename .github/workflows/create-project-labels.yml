@@ -1,0 +1,24 @@
+name: Crear labels para Kanban
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-kanban-labels:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+
+    steps:
+      - name: Checkout (no relevante, pero útil)
+        uses: actions/checkout@v4
+
+      - name: Crear labels con gh CLI
+        run: |
+          gh api repos/${{ github.repository }}/labels -f name=todo -f color=0E8A16 -f description="Pendiente - To do"
+          gh api repos/${{ github.repository }}/labels -f name=in-progress -f color=1D76DB -f description="En desarrollo"
+          gh api repos/${{ github.repository }}/labels -f name=review -f color=FBCA04 -f description="Para revisión"
+          gh api repos/${{ github.repository }}/labels -f name=done -f color=5319E7 -f description="Completado"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
