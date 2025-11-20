@@ -1,17 +1,115 @@
-name: Añadir Issues/PR al Project
+name: Automatización del Project
 
 on:
   issues:
-    types: [opened]
+    types: [opened, labeled]
   pull_request:
-    types: [opened]
+    types: [opened, labeled]
 
 jobs:
-  add_to_project:
+  add-to-project:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Añadiendo al GitHub Project
+      - name: Añadir Issue/PR al Project
         uses: actions/add-to-project@v0.6.0
         with:
           project-url: https://github.com/orgs/Herramientas-de-Desarrollo-Web/projects/1
           github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  update-status:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mover tarjeta según label
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const projectNumber = 1;
+            const org = "Herramientas-de-Desarrollo-Web";
+            const itemId = context.payload.issue?.node_id || context.payload.pull_request?.node_id;
+
+            if (!itemId) return;
+
+            // Detectar label aplicado
+            const labels = context.payload.issue?.labels || context.payload.pull_request?.labels || [];
+            const labelNames = labels.map(l => l.name);
+
+            // Mapear labels a columnas
+            const map = {
+              "todo": "To do",
+              "in-progress": "In Progress",
+              "review": "Review",
+              "done": "Done"
+            };
+
+            let targetStatus = null;
+
+            for (const [label, col] of Object.entries(map)) {
+              if (labelNames.includes(label)) {
+                targetStatus = col;
+                break;
+              }
+            }
+
+            if (!targetStatus) return;
+
+            // Buscar proyecto
+            const { organization } = await github.graphql(`
+              query($org: String!, $number: Int!) {
+                organization(login: $org) {
+                  projectV2(number: $number) {
+                    id
+                    fields(first: 20) {
+                      nodes {
+                        ... on ProjectV2SingleSelectField {
+                          id
+                          name
+                          options {
+                            id
+                            name
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `, { org, number: projectNumber });
+
+            const project = organization.projectV2;
+
+            // Buscar campo Status
+            const statusField = project.fields.nodes.find(f => f.name === "Status");
+
+            if (!statusField) return;
+
+            // Buscar opción correcta
+            const option = statusField.options.find(o => o.name === targetStatus);
+            if (!option) return;
+
+            // Aplicar cambio
+            await github.graphql(`
+              mutation($project: ID!, $item: ID!, $field: ID!, $option: String!) {
+                updateProjectV2ItemFieldValue(
+                  input: {
+                    projectId: $project,
+                    itemId: $item,
+                    fieldId: $field,
+                    value: {
+                      singleSelectOptionId: $option
+                    }
+                  }
+                ) {
+                  projectV2Item {
+                    id
+                  }
+                }
+              }
+            `, {
+              project: project.id,
+              item: itemId,
+              field: statusField.id,
+              option: option.id
+            });
