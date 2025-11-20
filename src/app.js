@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 // Servir archivos estáticos del frontend
-app.use(express.static(path.join(__dirname, "../public")));
+app.use(express.static(path.join(__dirname, "../docs")));
 
 // Rutas API
 app.use("/api/users", userRoutes);
@@ -27,7 +27,7 @@ app.get("/health", (req, res) => {
 
 // Fallback para cualquier otra ruta
 app.use((req, res) => {
-  res.sendFile(path.join(__dirname, "../public/HTML/index.html"));
+  res.sendFile(path.join(__dirname, "../docs/index.html"));
 });
 
 export default app;
