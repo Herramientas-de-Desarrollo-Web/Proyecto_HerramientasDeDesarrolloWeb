@@ -4,12 +4,10 @@
   "type": "module",
   "description": "* Proporcionar una interfaz amigable que facilite el uso del sistema de TechZone.\r * Implementar un flujo de trabajo con Git para llevar control de versiones del sistema durante todo el desarrollo.\r * Centralizar el código en GitHub para facilitar la colaboración, respaldo y visibilidad del proyecto.\r * Configurar un archivo .gitignore para excluir archivos innecesarios del repositorio.",
   "main": "server.js",
-  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js",
     "start": "node server.js"
-
   },
   "repository": {
     "type": "git",
@@ -23,6 +21,7 @@
   },
   "homepage": "https://github.com/TDScorpio/Proyecto_HerramientasDeDesarrolloWeb#readme",
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
@@ -30,6 +29,5 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.11"
-  } 
-  
+  }
 }

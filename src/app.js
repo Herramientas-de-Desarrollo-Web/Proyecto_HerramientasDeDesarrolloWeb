@@ -3,6 +3,7 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 import userRoutes from "./routes/userRoutes.js";
+import reservaRoutes from "./routes/reservaRoutes.js";
 
 const app = express();
 
@@ -15,10 +16,11 @@ app.use(cors());
 app.use(express.json());
 
 // Servir archivos estáticos del frontend
-app.use(express.static(path.join(__dirname, "../public")));
+app.use(express.static(path.join(__dirname, "../docs")));
 
 // Rutas API
 app.use("/api/users", userRoutes);
+app.use("/api/reservas", reservaRoutes);
 
 // Ruta de verificación (debe estar ANTES del fallback)
 app.get("/health", (req, res) => {
@@ -27,7 +29,7 @@ app.get("/health", (req, res) => {
 
 // Fallback para cualquier otra ruta
 app.use((req, res) => {
-  res.sendFile(path.join(__dirname, "../public/HTML/index.html"));
+  res.sendFile(path.join(__dirname, "../docs/index.html"));
 });
 
 export default app;
