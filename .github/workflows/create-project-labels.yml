@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Create labels for Kanban automation
-        uses: peter-evans/create-label@v5
+        uses: peter-evans/create-or-update-label@v5
         with:
           labels: |
             [
