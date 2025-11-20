@@ -1,0 +1,70 @@
+name: Project Automation
+
+on:
+  issues:
+    types: [opened, labeled]
+  pull_request:
+    types: [opened, ready_for_review, review_requested, closed]
+  workflow_dispatch:
+
+jobs:
+  sync-to-project:
+    name: Sync Issues & PRs with Project
+    runs-on: ubuntu-latest
+
+    permissions:
+      issues: write
+      pull-requests: write
+      repository-projects: write
+      contents: read
+
+    steps:
+      - name: Add Issue or PR to Project
+        uses: actions/add-to-project@v0.6.1
+        with:
+          project-url: https://github.com/orgs/Herramientas-de-Desarrollo-Web/projects/1
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Move Issues Based on Labels
+        if: github.event_name == 'issues'
+        uses: titoportas/gh-project-automation@v0.3.0
+        with:
+          project-id: "PVT_kwDODkssLc4BGQkj"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          resource-node-id: ${{ github.event.issue.node_id }}
+          status-field: "Status"
+          statuses: |
+            To do=todo
+            In Progress=in-progress
+            Review=review
+            Done=done
+
+      - name: Move PRs when opened
+        if: github.event_name == 'pull_request' && github.event.action == 'opened'
+        uses: titoportas/gh-project-automation@v0.3.0
+        with:
+          project-id: "PVT_kwDODkssLc4BGQkj"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          resource-node-id: ${{ github.event.pull_request.node_id }}
+          status-field: "Status"
+          status: "In Progress"
+
+      - name: Move PR to Review when Review Requested
+        if: github.event_name == 'pull_request' && github.event.action == 'review_requested'
+        uses: titoportas/gh-project-automation@v0.3.0
+        with:
+          project-id: "PVT_kwDODkssLc4BGQkj"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          resource-node-id: ${{ github.event.pull_request.node_id }}
+          status-field: "Status"
+          status: "Review"
+
+      - name: Move PR to Done when merged
+        if: github.event_name == 'pull_request' && github.event.pull_request.merged == true
+        uses: titoportas/gh-project-automation@v0.3.0
+        with:
+          project-id: "PVT_kwDODkssLc4BGQkj"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          resource-node-id: ${{ github.event.pull_request.node_id }}
+          status-field: "Status"
+          status: "Done"
