@@ -1,3 +1,4 @@
+// src/services/userService.js
 import { db } from "../config/db.js";
 
 export const getAllUsers = async () => {

@@ -27,4 +27,5 @@ USER appuser
 
 EXPOSE 3000
 # change to your start command (npm start or node index.js)
-CMD ["node", "index.js"]
+CMD ["node", "server.js"]
+
