@@ -1,4 +1,4 @@
-// Datos de salas
+// Datos de salas en general
 const salas = [
   {
     nombre: "Sala Ejecutiva",
