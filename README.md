@@ -91,7 +91,7 @@
 ## 1.12. Realizando el despliegue:
 ![despliegue](imgMarkdown/despliegue.png)
 ![despliegu2](imgMarkdown/despliegue2.png)
-<!--
+
 ## 1.4. Tecnologias utilizadas 💻
 * JavaScript/MySQL/css.
 * Git/GitHub.
@@ -388,15 +388,238 @@ git commit -m "nombre para commit"
 ![solicitaPR2](imgMarkdown/solicitaPR2.png)
 ![solicitaPR3](imgMarkdown/solicitaPR3.png)
 
-# 4. Capturas de Pantallas
-## 4.1. Pagina Inicio
-![Inicio](imgMarkdown/paginaInicio.png)
 
-## 4.2. Pagina Producto
-![Productos](imgMarkdown/paginaProductos.png)
+## 5. Despliegue con Contenedores (Docker) y CI/CD (GitHub Actions + Render)
 
-## 4.3. Pagina Nosotros
-![Nosotros](imgMarkdown/paginaNosotros.png)
+Este proyecto implementa un flujo de integración continua (CI) y entrega continua (CD) basado en:
 
-## 4.4. Pagina Contacto
-![Contacto](imgMarkdown/paginaContacto.png)
+* Docker para empaquetar la aplicación
+* GitHub Actions para construcción y publicación automática de imágenes
+* Docker Hub como registry de contenedores
+* Render como plataforma de despliegue
+
+A continuación se documentan los pasos, pipeline y evidencias de funcionamiento.
+
+---
+
+## 5.1. Construcción de la imagen Docker
+
+La imagen de producción es generada mediante el siguiente `Dockerfile`, optimizado en dos etapas (multistage build) para reducir tamaño y mejorar seguridad:
+
+```
+# ========== STAGE 1: Builder ==========
+FROM node:18-alpine AS builder
+WORKDIR /app
+
+# Instalar dependencias
+COPY package*.json ./
+RUN npm ci --omit=dev
+
+# Copia del código
+COPY . .
+
+# ========== STAGE 2: Final image ==========
+FROM node:18-alpine
+WORKDIR /app
+
+ENV NODE_ENV=production
+
+# Crear usuario no root
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+
+# Copiar la aplicación final
+COPY --from=builder /app /app
+
+# Permisos
+RUN chown -R appuser:appgroup /app
+USER appuser
+
+EXPOSE 3000
+
+CMD ["node", "server.js"]
+```
+
+---
+
+### 5.1. Habilitación de GitHub Actions
+
+Para automatizar el proceso de construcción y despliegue, se habilitó un workflow basado en GitHub Actions. Este flujo ejecuta automáticamente la construcción del contenedor Docker y lo publica en Docker Hub cada vez que se realiza un commit en la rama configurada.
+
+
+---
+
+### 5.2. Configuración de Secrets en GitHub
+
+Para permitir que GitHub realice autenticación segura con Docker Hub, se configuraron los siguientes secrets en el repositorio:
+
+#### 5.2.1. DOCKERHUB_USERNAME
+
+Represents the Docker Hub account username.
+En este caso: **lucianohp**
+
+![solicitaPR3](imgMarkdown/SecretDocker.png)
+
+#### 5.2.2. DOCKERHUB_TOKEN
+
+Se generó un **Access Token** desde Docker Hub para permitir que GitHub pueda subir imágenes sin exponer la contraseña del usuario.
+
+**Pasos realizados:**
+
+1. Ingresar a Docker Hub.
+2. Acceder a: Account Settings → Security → Access Tokens.
+3. Crear un token con permisos de lectura y escritura.
+4. Copiar el token generado (solo visible una vez).
+5. Guardarlo en GitHub como el secret **DOCKERHUB_TOKEN**.
+
+![solicitaPR3](imgMarkdown/AccessToken.png)
+![solicitaPR3](imgMarkdown/SecretDocker.png)
+
+---
+
+### 5.3. Workflow para construcción y publicación de la imagen Docker
+
+Se configuró el archivo `.github/workflows/deploy.yml` con un pipeline que:
+
+1. Verifica el código del repositorio.
+2. Inicia sesión en Docker Hub usando los secrets.
+3. Construye la imagen Docker usando el Dockerfile del proyecto.
+4. Publica la imagen con la etiqueta:
+   **lucianohp/localreservas:latest**
+5. Confirma el push exitoso.
+
+*![solicitaPR3](imgMarkdown/Deploy.png)
+![solicitaPR3](imgMarkdown/build exitoso.png)
+
+---
+
+### 5.4. Verificación en Docker Hub
+
+Después del pipeline exitoso, se verificó el repositorio en Docker Hub:
+
+* Nombre del repositorio: **localreservas**
+* Etiqueta generada: **latest**
+* Estado: Imagen publicada correctamente
+
+![solicitaPR3](imgMarkdown/DockerHub.png)
+
+---
+
+### 5.5. Integración con Render
+
+Se configuró el servicio en Render para que tome la imagen Docker publicada en Docker Hub.
+
+Parámetros utilizados:
+
+* Registry: Docker Hub
+* Repository: **lucianohp/localreservas**
+* Tag: **latest**
+* Auto Deploy: Enabled
+* Exposed Port: 3000
+
+![solicitaPR3](imgMarkdown/NuevSerDocker.png)
+![solicitaPR3](imgMarkdown/EstadoDep.png)
+
+---
+
+## 5.2. Publicación automática en Docker Hub (CI)
+
+Cada push a la rama `main` ejecuta un workflow que:
+
+1. Construye la imagen Docker
+2. Ejecuta un login contra Docker Hub usando secrets
+3. Empuja la imagen a:
+
+```
+lucianohp/localreservas:latest
+```
+
+### Workflow utilizado
+
+Archivo: `.github/workflows/deploy.yml`
+
+```
+name: build-and-push
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and Push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: Dockerfile
+          push: true
+          tags: lucianohp/localreservas:latest
+```
+
+
+![solicitaPR3](imgMarkdown/build exitoso.png)
+![solicitaPR3](imgMarkdown/DockerHub.png)
+
+---
+
+## 5.3. Despliegue continuo en Render (CD)
+
+Render está configurado como servicio basado en **Docker external image** tomando automáticamente:
+
+```
+docker.io/lucianohp/localreservas:latest
+```
+
+Cada vez que se sube una nueva imagen, Render despliega la versión actualizada.
+
+### Configuración usada en Render
+
+* **Type:** Web Service
+* **Environment:** Docker
+* **Registry:** Docker Hub
+* **Deploy Method:** Auto-Deploy
+* **Port:** 3000
+
+
+![solicitaPR3](imgMarkdown/ServiOnline.png)
+![solicitaPR3](imgMarkdown/NavFun.png)
+![solicitaPR3](imgMarkdown/AppFuncionando.png)
+
+---
+
+## 5.4. URL pública de producción
+
+La aplicación se encuentra desplegada y disponible en:
+
+```
+https://<tu-app>.onrender.com/
+```
+
+
+![solicitaPR3](imgMarkdown/NavFun.png)
+
+---
+
+## 5.5. Resumen del flujo CI/CD
+
+1. Haces un commit/push a `main`.
+2. GitHub Actions:
+
+   * Construye la imagen Docker.
+   * Hace push a `lucianohp/localreservas:latest`.
+3. Render detecta el nuevo tag y despliega automáticamente.
+4. La aplicación queda disponible en su URL pública.
+
+Este proceso garantiza despliegues consistentes, reproducibles y automáticos.
+
+---
