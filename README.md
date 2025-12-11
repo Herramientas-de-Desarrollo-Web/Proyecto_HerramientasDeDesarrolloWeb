@@ -523,7 +523,7 @@ Se configuró el archivo `.github/workflows/deploy.yml` con un pipeline que:
 5. Confirma el push exitoso.
 
 *![solicitaPR3](imgMarkdown/Deploy.png)
-![solicitaPR3](imgMarkdown/build exitoso.png)
+![solicitaPR3](imgMarkdown/buildexitoso.png)
 
 ---
 
@@ -602,7 +602,7 @@ jobs:
 ```
 
 
-![solicitaPR3](imgMarkdown/build exitoso.png)
+![solicitaPR3](imgMarkdown/buildexitoso.png)
 ![solicitaPR3](imgMarkdown/DockerHub.png)
 
 ---
