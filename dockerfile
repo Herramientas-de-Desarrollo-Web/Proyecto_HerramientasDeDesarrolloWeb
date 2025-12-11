@@ -1,31 +1,30 @@
-# Dockerfile
-FROM node:18-alpine AS builder
+# ========== BASE STAGE ==========
+FROM node:18-alpine AS base
 WORKDIR /app
 
-# copy package files first to use cache
+# Copiar dependencias
 COPY package*.json ./
-RUN npm ci --only=production
 
-# copy source
+# Instalar solo dependencias de producción
+RUN npm ci --omit=dev
+
+# Copiar el resto del código
 COPY . .
 
-# If you have build step (e.g. frontend build), run it here:
-# RUN npm run build
-
-# final image
+# ========== FINAL STAGE ==========
 FROM node:18-alpine
+
 WORKDIR /app
 ENV NODE_ENV=production
 
-# create non-root user
+# Crear usuario no root
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
-COPY --from=builder /app /app
 
-# change ownership
+# Copiar node_modules y código desde base
+COPY --from=base /app /app
+
 RUN chown -R appuser:appgroup /app
 USER appuser
 
 EXPOSE 3000
-# change to your start command (npm start or node index.js)
 CMD ["node", "server.js"]
-
