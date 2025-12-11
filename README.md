@@ -1,4 +1,4 @@
-# 1. Desarrollo de un Sistema de Gestión de Ventas para TechZone 🛒
+# 1. Sistema de Reservas de salones para Salon Encanto
 
 ## 1.1. Problematica ⚠️
 ### Salón Encanto, dedicado al alquiler de espacios para eventos, actualmente gestiona las reservas de forma manual, lo que ha generado diversos problemas como errores de sobre-reserva, dificultad para visualizar la disponibilidad en tiempo real y falta de seguimiento a las solicitudes de los clientes. Esta situación reduce la eficiencia operativa, limita la capacidad de respuesta ante imprevistos y afecta negativamente la experiencia del usuario.
@@ -88,9 +88,43 @@
 ![etiquetaPrueba](imgMarkdown/etiquetaPrueba.png)
 ## 1.11. Creación de Issues automatizados con la organización: 
 ![issuesAutomatizados ](imgMarkdown/issuesAutomatizados.png)
-## 1.12. Realizando el despliegue:
+## 1.12. Agregando cambios en ISSUES_TEMPLATE:
+![issues ](imgMarkdown/issues-template.jpeg)
+## 1.13. Con el contenido de ISSUE_TEMPLATE CORRECTO nos saldrán las plantillas al crear un ISSUE:
+![template ](imgMarkdown/template.jpeg)
+## 1.14. Seleccionamos bug_report.md:
+![bug-report ](imgMarkdown/bug-report.jpeg)
+## 1.15. Realizando test de funcionamiento de la automatización:
+![test1 ](imgMarkdown/test1.jpeg)
+![test2 ](imgMarkdown/test2.jpeg)
+## 1.16. Por defecto se va a la columna “To do”:
+![to-do ](imgMarkdown/to-do.jpeg)
+## 1.17. Prueba: Pull request merged
+![merged ](imgMarkdown/merged.jpeg)
+## 1.18. Por defecto sale en la columna “To do”:
+![to-do1 ](imgMarkdown/to-do1.jpeg)
+## 1.19. En PR seleccionamos el número del issue para que se cierre automáticamente:
+![PR ](imgMarkdown/PR.jpeg)
+## 1.20. Revisamos si se realizó correctamente:
+![Revision ](imgMarkdown/Revision.jpeg)
+## 1.21. Realizando el despliegue:
 ![despliegue](imgMarkdown/despliegue.png)
 ![despliegu2](imgMarkdown/despliegue2.png)
+## 1.22. Inicio de sesión con GitHub en Render:
+![render](imgMarkdown/renderizar.jpeg)
+![render2](imgMarkdown/renderizar2.jpeg)
+## 1.23. Dando permisos a render desde la organización:
+![permiso](imgMarkdown/permiso1.jpeg)
+![permiso2](imgMarkdown/permiso2.jpeg)
+## 1.24. Configurando el despliegue:
+![desplegue1](imgMarkdown/desplegue1.jpeg)
+![desplegue2](imgMarkdown/desplegue2.jpeg)
+## 1.24. Despliegue exitoso:
+![exitoso1](imgMarkdown/exitoso1.jpeg)
+## 1.25. Para desactivar el despliegue automático en render:
+![exitoso2](imgMarkdown/exitoso2.jpeg)
+## 1.26. Opción “off”:
+![exitoso3](imgMarkdown/exitoso3.jpeg)
 <!--
 ## 1.4. Tecnologias utilizadas 💻
 * JavaScript/MySQL/css.
